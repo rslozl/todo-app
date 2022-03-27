@@ -1,0 +1,22 @@
+<div class="container ">
+  <div class="row mt-3">
+    <div class="col-12">
+      <div [ngClass]="setClasses()">
+        <p>
+          <input
+            (change)="onToggle(todo)"
+            type="checkbox"
+            [checked]="todo.completed"
+          />
+          {{ todo.title }}
+          <img src="/assets/svg/edited.svg" alt="edit" (click)="onEdit(todo)" class="edit">
+          <img src="/assets/svg/deleted.svg" alt="delete" (click)="onDelete(todo)" class="del">
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<app-edit-todo-popup [todo]="todo" [modalId]="todo.id + '-todo-modal'" ></app-edit-todo-popup>
